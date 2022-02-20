@@ -1,8 +1,10 @@
 package com.devexperto.abt.mymovies.model
 
-
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Movie(
     @SerializedName("adult")
     val adult: Boolean,
@@ -32,4 +34,4 @@ data class Movie(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+) : Parcelable
