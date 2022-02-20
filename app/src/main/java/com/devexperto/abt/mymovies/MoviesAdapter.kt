@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.devexperto.abt.mymovies.databinding.ViewMovieItemBinding
+import com.devexperto.abt.mymovies.model.Movie
 
-class MoviesAdapter(private val movies: List<Movie>, private val movieClickListener: (Movie) -> Unit )
+class MoviesAdapter(var movies: List<Movie>, private val movieClickListener: (Movie) -> Unit )
     : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +26,7 @@ class MoviesAdapter(private val movies: List<Movie>, private val movieClickListe
     class ViewHolder(private val binding: ViewMovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
             binding.title.text = movie.title
-            Glide.with(binding.root.context).load(movie.cover).into(binding.cover)
+            Glide.with(binding.root.context).load("https://image.tmdb.org/t/p/w185/${movie.posterPath}").into(binding.cover)
         }
     }
 }
