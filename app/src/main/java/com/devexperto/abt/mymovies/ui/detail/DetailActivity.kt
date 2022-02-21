@@ -1,11 +1,13 @@
-package com.devexperto.abt.mymovies
+package com.devexperto.abt.mymovies.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import android.widget.TextView
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
 import com.bumptech.glide.Glide
+import com.devexperto.abt.mymovies.R
 import com.devexperto.abt.mymovies.databinding.ActivityDetailBinding
 import com.devexperto.abt.mymovies.model.Movie
 
@@ -31,20 +33,19 @@ class DetailActivity : AppCompatActivity() {
 
     private fun bindDetailInfo(detailinfo: TextView, movie: Movie) {
         detailinfo.text = buildSpannedString {
-            bold { append("Original language: ") }
-            appendLine(movie.originalLanguage)
-
-            bold { append("Original title: ") }
-            appendLine(movie.originalTitle)
-
-            bold { append("Release date: ") }
-            appendLine(movie.releaseDate)
-
-            bold { append("Populirity: ") }
-            appendLine(movie.popularity.toString())
-
-            bold { append("Vote average: ") }
-            appendLine(movie.voteAverage.toString())
+            appendInfo(R.string.original_language, movie.originalLanguage)
+            appendInfo(R.string.original_title, movie.originalTitle)
+            appendInfo(R.string.release_date, movie.releaseDate)
+            appendInfo(R.string.popularity, movie.popularity.toString())
+            appendInfo(R.string.vote_average, movie.voteAverage.toString())
         }
+    }
+
+    private fun SpannableStringBuilder.appendInfo(stringRes: Int, value: String) {
+        bold {
+            append(getString(stringRes))
+            append(": ")
+        }
+        appendLine(value)
     }
 }

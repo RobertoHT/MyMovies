@@ -1,4 +1,4 @@
-package com.devexperto.abt.mymovies
+package com.devexperto.abt.mymovies.service
 
 import com.devexperto.abt.mymovies.model.MovieDbResult
 import retrofit2.http.GET

@@ -1,11 +1,14 @@
-package com.devexperto.abt.mymovies
+package com.devexperto.abt.mymovies.ui.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import com.devexperto.abt.mymovies.service.MovieDbClient
+import com.devexperto.abt.mymovies.R
 import com.devexperto.abt.mymovies.databinding.ActivityMainBinding
 import com.devexperto.abt.mymovies.model.Movie
+import com.devexperto.abt.mymovies.ui.detail.DetailActivity
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {

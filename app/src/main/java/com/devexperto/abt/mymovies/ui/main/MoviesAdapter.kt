@@ -1,4 +1,4 @@
-package com.devexperto.abt.mymovies
+package com.devexperto.abt.mymovies.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
