@@ -22,12 +22,19 @@ class DetailActivity : AppCompatActivity() {
         val binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val movie = intent.getParcelableExtra<Movie>(EXTRA_MOVIE)
         if (movie != null) {
             title = movie.title
             Glide.with(binding.root.context).load("https://image.tmdb.org/t/p/w780/${movie.backdropPath}").into(binding.backdrop)
             binding.summary.text = movie.overview
             bindDetailInfo(binding.detailinfo, movie)
+
+            binding.fab.setOnClickListener {
+                //Instrucciones del button
+            }
         }
     }
 
